@@ -155,7 +155,7 @@ func (c *Client) Request(ctx context.Context, url, method string,
 	}
 
 	// Unmarshal the HTTP response into a JSON RPC response.
-	var resID int
+	var resID string
 	res := Response{Result: result, ID: &resID}
 	if err := json.Unmarshal(body, &res); err != nil {
 		return newErrorUnexpectedHTTPResponse(err, body, httpRes)
